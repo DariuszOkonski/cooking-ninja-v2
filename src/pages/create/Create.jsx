@@ -1,5 +1,6 @@
 import './Create.css';
 import { useRef, useState } from 'react';
+import { useFetch } from '../../hooks/useFetch';
 
 export default function Create() {
   const [title, setTitle] = useState('');
@@ -8,12 +9,12 @@ export default function Create() {
   const [newIngredient, setNewIngredient] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const ingredientInput = useRef();
-
+  const { postData, data, error } = useFetch('http://localhost:3000/recipes', 'POST');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(title, method, cookingTime, ingredients)
+    postData({ title, ingredients, method, cookingTime: cookingTime + ' minutes' });
 
     handleClearState();
   }
@@ -22,6 +23,9 @@ export default function Create() {
     e.preventDefault();
 
     const ing = newIngredient.trim();
+
+    if(ing === '')
+      return;
 
     if(ing && !ingredients.includes(ing)) {
       setIngredients(prevIngredients => [...prevIngredients, ing])
@@ -59,7 +63,6 @@ export default function Create() {
               type="text" 
               onChange={(e) => setNewIngredient(e.target.value)}
               value={newIngredient}
-              required
               ref={ingredientInput}
             />
             <button 
