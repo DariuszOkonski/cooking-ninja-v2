@@ -2,6 +2,7 @@
     color: #555;
     max-width: 480px;
     margin: 60px auto;
+    padding: 20px;
 }
 
 .create label span {
@@ -35,4 +36,13 @@
 
 .ingredients button {
     margin: 0 0 0 10px;
+}
+
+.create.dark {
+    background-color: #555;
+    color: #e4e4e4;
+}
+
+.create.dark h2 {
+    color: #e4e4e4;
 }
