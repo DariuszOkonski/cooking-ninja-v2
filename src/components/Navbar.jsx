@@ -5,9 +5,7 @@ import Searchbar from './Searchbar';
 import { useTheme } from './../hooks/useTheme';
 
 export default function Navbar() {
-
-  const { color } = useTheme();
-  console.log('Navbar: ', color)
+  const { color, changeColor } = useTheme();
 
   return (
     <div className='navbar' style={{ background: color }}>
@@ -17,7 +15,6 @@ export default function Navbar() {
             </Link>
 
             <Searchbar />
-
             <Link to='/create'>Create recipe</Link>
         </nav>
     </div>
