@@ -17,7 +17,7 @@ const themeReducer = (state, action) => {
 export function ThemeProvider({ children }) {
     const [state, dispatch] = useReducer(themeReducer, { 
         color: NAV_BG_COLOR_DEFAULT,
-        mode: MODE_DARK
+        mode: MODE_LIGHT
     })
 
     const changeColor = (color) => {

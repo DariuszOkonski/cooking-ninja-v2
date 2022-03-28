@@ -8,3 +8,4 @@ export const NAV_BG_COLOR_SECOND = '#b70233';
 export const MODE_DARK = 'dark';
 export const MODE_LIGHT = 'light';
 
+export const RECIPES_DB = 'recipes';
