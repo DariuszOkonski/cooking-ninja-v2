@@ -1,9 +1,9 @@
 import './Create.css';
 import { useRef, useState } from 'react';
-import { useFetch } from '../../hooks/useFetch';
-import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTheme } from './../../hooks/useTheme';
+import { projectFirestore } from '../../firebase/config';
+import { RECIPES_DB } from '../../utilities/constants';
 
 export default function Create() {
   const [title, setTitle] = useState('');
@@ -12,14 +12,22 @@ export default function Create() {
   const [newIngredient, setNewIngredient] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const ingredientInput = useRef();
-  const { postData, data, error } = useFetch('http://localhost:3000/recipes', 'POST');
   const history = useHistory();
   const { mode } = useTheme();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
-    postData({ title, ingredients, method, cookingTime: cookingTime + ' minutes' });
+    const doc = { title, ingredients, method, cookingTime: cookingTime + ' minutes' };
+
+    try {
+      // add new recipe to the db
+      await projectFirestore.collection(RECIPES_DB).add(doc);      
+      history.push('/');
+
+    } catch (err) {
+      console.log(err);
+    }    
 
     handleClearState();
   }
@@ -44,14 +52,7 @@ export default function Create() {
     setTitle('');
     setMethod('');
     setCookingTime('');
-  }
-
-  useEffect(() => {
-    if(data) {
-      history.push('/');
-    }
-  }, [data])
-  
+  }  
 
   return (
     <div className={`create ${mode}`}>

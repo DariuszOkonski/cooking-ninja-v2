@@ -13,6 +13,7 @@ export default function Home() {
       setIsPending(true);
       setError(false);
       
+      // getting all recipies collection from db
       projectFirestore.collection(RECIPES_DB).get()
         .then((snapshot) => {
           if(snapshot.empty) {
