@@ -17,7 +17,7 @@
 }
 
 .recipe-list .card:hover {
-    transform: rotate(3deg);
+    transform: scale(1.03);
 }
 
 .recipe-list .card h3 {
@@ -56,6 +56,12 @@
     right: 10px;
     cursor: pointer;
     filter: invert(60%);
+    transition: all 0.2s ease;
+}
+
+.delete:hover {
+    transform: scale(1.2);
+    filter: invert(29%) sepia(94%) saturate(7497%) hue-rotate(356deg) brightness(109%) contrast(117%);
 }
 
 /* dark mode */

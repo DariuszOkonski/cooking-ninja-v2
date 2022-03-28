@@ -13,9 +13,11 @@ export default function Home() {
       setIsPending(true);
       setError(false);
       
-      // getting all recipies collection from db
-      projectFirestore.collection(RECIPES_DB).get()
-        .then((snapshot) => {
+      // getting all recipies collection from
+      // projectFirestore.collection(RECIPES_DB).get().then((snapshot) => {
+
+      // onSnapshot is kicked off every time when something is changed in db
+      const unsub = projectFirestore.collection(RECIPES_DB).onSnapshot((snapshot) => {
           if(snapshot.empty) {
             setError('No recipes to load')
             setIsPending(false);
@@ -28,10 +30,18 @@ export default function Home() {
             setData(results);
             setIsPending(false);
           }
-        }).catch(err => {
+        }, (err) => {
           setError(err.message);
           setIsPending(false);
-        }) 
+        })
+        // .catch(err => {
+        //   setError(err.message);
+        //   setIsPending(false);
+        // }) 
+
+        return () => {
+          unsub();
+        }
       
     }, [])
     
