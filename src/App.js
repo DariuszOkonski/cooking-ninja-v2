@@ -7,6 +7,8 @@ import Recipe from './pages/recipe/Recipe';
 import Navbar from './components/Navbar';
 import ThemeSelector from './components/ThemeSelector';
 import { useTheme } from './hooks/useTheme';
+import Login from './pages/login/Login';
+import Signup from './pages/signup/Signup';
 
 function App() {
   const { mode } = useTheme();
@@ -29,6 +31,12 @@ function App() {
           </Route>
           <Route path='/recipes/:id'>
             <Recipe />
+          </Route>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <Route path='/signup'>
+            <Signup />
           </Route>
         </Switch>
       
