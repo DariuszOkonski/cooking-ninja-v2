@@ -1,0 +1,38 @@
+.user-auth {
+    width: 100%;
+    padding: 10px 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: #58249c;
+}
+
+.user-auth nav {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.user-auth ul {
+    display: flex;
+    margin: 0 auto; 
+    padding: 0;   
+    max-width: 1200px;
+    align-items: center;
+    list-style: none;
+    color: #fff;
+}
+
+.user-auth .title {
+    margin-right: auto;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+}
+
+.user-auth button, .user-auth a {
+    margin-left: 16px;
+}
+
+.user-auth a {
+    color: #fff;
+    text-decoration: none;
+}

@@ -9,6 +9,7 @@ import ThemeSelector from './components/ThemeSelector';
 import { useTheme } from './hooks/useTheme';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
+import UserAuth from './components/UserAuth';
 
 function App() {
   const { mode } = useTheme();
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className={`App ${mode}`}>
       <BrowserRouter>
+        <UserAuth />
         <Navbar />
         <ThemeSelector />
         
