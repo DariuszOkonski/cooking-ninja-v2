@@ -37,15 +37,15 @@ input, textarea {
 
 .btn {
   background: none;
-  border: 2px solid #1f9751;
+  border: 2px solid #58249c;
   padding: 6px 12px;
   border-radius: 4px;
-  color: #1f9751;
+  color: #58249c;
   font-weight: bold;
   cursor: pointer;
 }
 
 .btn:hover {
-  background: #1f9751;
+  background: #58249c;
   color: #fff;
 }
