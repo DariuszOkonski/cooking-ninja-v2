@@ -4,6 +4,7 @@ import { useState } from 'react';
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [displayName, setDisplayName] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,6 +32,15 @@ export default function Login() {
             type="password" 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          <span>display name:</span>
+          <input 
+            type="text" 
+            value={displayName}
+            onChange={(e) => setDisplayName(e.target.value)}
             required
           />
         </label>
