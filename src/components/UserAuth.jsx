@@ -14,6 +14,9 @@ export default function UserAuth() {
                 <li>
                     <Link to='/signup'>Signup</Link>
                 </li>
+                <li>
+                    <Link className='btn' to='/#'>Logout</Link>
+                </li>
             </ul>
         </nav>
       </div>

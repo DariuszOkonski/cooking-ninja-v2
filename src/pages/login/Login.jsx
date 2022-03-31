@@ -9,7 +9,7 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log('handleSubmit');
+    console.log(email, password, displayName);
   }
 
   return (
