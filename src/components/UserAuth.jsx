@@ -15,7 +15,7 @@ export default function UserAuth() {
                         {
                             !user ? 
                             <span>Please, log in</span> : 
-                            <span>You are logged as: {user.displayName}</span>
+                            <span>Logged as: {user.displayName}</span>
                         }
                     </li>
                     
