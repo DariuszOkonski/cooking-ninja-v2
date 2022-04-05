@@ -1,12 +1,15 @@
 import { createContext, useReducer } from 'react';
-import { LOGIN } from './../utilities/constants';
+import { LOGIN, LOGOUT, SIGNUP } from './../utilities/constants';
 
 export const AuthContext = createContext();
 
 const authReducer = (state, action) => {
     switch (action.type) {
+        case SIGNUP:
         case LOGIN:
             return { ...state, user: action.payload }
+        case LOGOUT:
+            return { ...state, user: null }
         default:
             return state;
     }

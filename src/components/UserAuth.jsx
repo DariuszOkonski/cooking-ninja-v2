@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
 import './UserAuth.css';
 import { useAuthContext } from './../hooks/useAuthContext';
+import { useLogout } from './../hooks/useLogout';
 
 export default function UserAuth() {
     const { user } = useAuthContext();
-    
+    const { logout } = useLogout();
+
     return (
         <div className='user-auth'>
             <nav>
@@ -16,16 +18,16 @@ export default function UserAuth() {
                             <span>You are logged as: {user.displayName}</span>
                         }
                     </li>
-
-                    <li>
+                    
+                    {!user && <li>
                         <Link to='/login'>Login</Link>
-                    </li>
-                    <li>
+                    </li>}
+                    {!user && <li>
                         <Link to='/signup'>Signup</Link>
-                    </li>
-                    <li>
-                        <Link className='btn' to='/#'>Logout</Link>
-                    </li>
+                    </li>}
+                    {user && <li>
+                        <button onClick={logout} className='btn'>Logout</button>
+                    </li>}
                 </ul>
             </nav>
         </div>

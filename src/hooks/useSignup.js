@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { projectAuth } from '../firebase/config';
 import { useAuthContext } from './useAuthContext';
-import { LOGIN } from './../utilities/constants';
+import { SIGNUP } from './../utilities/constants';
 
 
 export const useSignup = () => {
@@ -24,9 +24,9 @@ export const useSignup = () => {
             // add display name to user
             await res.user.updateProfile({ displayName });
             
-            // dispatch login action
+            // dispatch signup action
             dispatch({
-                type: LOGIN,
+                type: SIGNUP,
                 payload: res.user
             })
 
