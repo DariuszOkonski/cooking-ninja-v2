@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route,Redirect } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home/Home';
 import Create from './pages/create/Create';
@@ -25,22 +25,27 @@ function App() {
         
         <Switch>
           <Route exact path='/'>
-            
+            {!user && <Redirect to='/login'/>}
             <Home />
           </Route>
           <Route path='/create'>
+            {!user && <Redirect to='/login'/>}
             <Create />
           </Route>
           <Route path='/search'>
+            {!user && <Redirect to='/login'/>}
             <Search />
           </Route>
           <Route path='/recipes/:id'>
+            {!user && <Redirect to='/login'/>}
             <Recipe />
           </Route>
           <Route path='/login'>
+            {user && <Redirect to='/'/>}
             <Login />
           </Route>
           <Route path='/signup'>
+            {user && <Redirect to='/'/>}
             <Signup />
           </Route>
         </Switch>
