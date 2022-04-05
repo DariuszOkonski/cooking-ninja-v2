@@ -3,9 +3,11 @@ import './Navbar.css';
 import Searchbar from './Searchbar';
 
 import { useTheme } from './../hooks/useTheme';
+import { useAuthContext } from './../hooks/useAuthContext';
 
 export default function Navbar() {
   const { color, changeColor } = useTheme();
+  const { user } = useAuthContext();
 
   return (
     <div className='navbar' style={{ background: color }}>
@@ -14,8 +16,8 @@ export default function Navbar() {
                 <h1>Recipe App</h1>
             </Link>
 
-            <Searchbar />
-            <Link to='/create'>Create recipe</Link>
+            {user && <Searchbar />}
+            {user && <Link className='create-recipe' to='/create'>Create recipe</Link>}
         </nav>
     </div>
   )

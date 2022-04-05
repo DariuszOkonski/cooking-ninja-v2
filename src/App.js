@@ -10,9 +10,11 @@ import { useTheme } from './hooks/useTheme';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import UserAuth from './components/UserAuth';
+import { useAuthContext } from './hooks/useAuthContext';
 
 function App() {
   const { mode } = useTheme();
+  const { user } = useAuthContext();
 
   return (
     <div className={`App ${mode}`}>
@@ -23,6 +25,7 @@ function App() {
         
         <Switch>
           <Route exact path='/'>
+            
             <Home />
           </Route>
           <Route path='/create'>
